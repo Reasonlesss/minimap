@@ -44,4 +44,7 @@ The shader can be configured in the `assets/minimap/shaders/include/minimap_conf
 
 # Information to know
   - The minimap doesn't scale with GUI scale as we don't have access to it.
-  - This shader doesnt provide any decorations (minimap frame, background when you reach the border etc.)
+  - This shader doesn't provide any decorations (minimap frame, background when you reach the border etc.)
+
+# Known caveats
+  - Name tags of entities spawned after the minimap entities can sometimes show through the minimap.

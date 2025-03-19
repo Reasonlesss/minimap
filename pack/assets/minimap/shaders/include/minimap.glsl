@@ -28,12 +28,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #define SIGNATURE_E 69.0 / 255.0
 #define SIGNATURE_M 77.0 / 255.0
 
-bool matches(vec4 color, int r, int g, int b) {
-    return color.x == float(r) / 255.0 &&
-        color.y == float(g) / 255.0 &&
-        color.z == float(b) / 255.0;
-}
-
 float getCameraYaw(mat4 viewMat) {
     vec4 left = vec4(1.0, 0.0, 0.0, 0.0) * viewMat;
     return atan(left.z, left.x) + radians(180.0);
@@ -59,7 +53,7 @@ mat2 createRotationMat(float theta) {
             int blueChannel = int(Color.z * 255);
             bool isIcon = blueChannel > 0;
             int offset = isIcon ? ((blueChannel >> 0) & 0x3F) + 1 : (TEXTURE_SIZE / 2);
-            float zPosition = isIcon ? -0.001 * (((blueChannel >> 6) & 0x3) + 1) : 0.0;
+            float zPosition = -0.995 - (isIcon ? 0.001 * (((blueChannel >> 6) & 0x3) + 1) : 0.00);
 
             // Calculate necessary information for the minimap.
             vec2 pixelSize = 2.0 / ScreenSize;
@@ -103,7 +97,6 @@ mat2 createRotationMat(float theta) {
     in float minimapActive;
 
     bool applyMinimap() {
-        gl_FragDepth = gl_FragCoord.z;
         if (minimapActive == MINIMAP_ACTIVE) {
             // Calculate x and y coordinates for readability
             float x = gl_FragCoord.x;
@@ -123,7 +116,6 @@ mat2 createRotationMat(float theta) {
 
                 if (distSquared > radius * radius) discard;
             }
-            gl_FragDepth = 0.0;
             return true;
         }
         return false;
