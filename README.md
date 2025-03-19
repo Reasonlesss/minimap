@@ -21,9 +21,9 @@ Now you should have a minimap displayed on screen while in view range. You are a
     - The color value of the text encodes two key properties:
         - The 2 most significant bits represent the Z-position of the icon minus 1.
         - The 6 least significant bits represent HALF the size of the texture minus 1.
-Now you should have icons displaying on your minimap
+Now you should have icons displaying on your minimap. If you wish to center an icon on the minimap (an arrow showing the player) you can simply make the text display ride the player.
 
-## Icon color cheat sheet
+## Icon color cheatsheet
 | Z Index | **4x4**   | **8x8**   | **16x16** | **32x32** |
 |---------|-----------|-----------|-----------|-----------|
 |   **1** | `#454D01` | `#454D03` | `#454D07` | `#454D0F` |
