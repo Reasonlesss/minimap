@@ -122,6 +122,7 @@ mat2 createRotationMat(float theta) {
 
                 if (distSquared > radius * radius) discard;
             }
+            gl_FragDepth = 0.0;
             return true;
         }
         return false;
