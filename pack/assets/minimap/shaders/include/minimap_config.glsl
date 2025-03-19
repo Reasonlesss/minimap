@@ -26,10 +26,10 @@
 #define MINIMAP_Y_POSITION 50
 
 // Width of the minimap in pixels.
-#define MINIMAP_WIDTH 500
+#define MINIMAP_WIDTH 300
 
 // Height of the minimap in pixels.
-#define MINIMAP_HEIGHT 500
+#define MINIMAP_HEIGHT 300
 
 // The side length of the background texture in pixels
 #define TEXTURE_SIZE 256
