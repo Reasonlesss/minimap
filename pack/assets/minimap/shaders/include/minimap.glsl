@@ -59,7 +59,7 @@ mat2 createRotationMat(float theta) {
             int blueChannel = int(Color.z * 255);
             bool isIcon = blueChannel > 0;
             int offset = isIcon ? ((blueChannel >> 0) & 0x3F) + 1 : (TEXTURE_SIZE / 2);
-            float zPosition = isIcon ? -0.001 * ((blueChannel >> 6) & 0x3 + 1) : 0.0;
+            float zPosition = isIcon ? -0.001 * (((blueChannel >> 6) & 0x3) + 1) : 0.0;
 
             // Calculate necessary information for the minimap.
             vec2 pixelSize = 2.0 / ScreenSize;
