@@ -3,24 +3,24 @@ A minimap created within Minecraft's Core Shaders.
 
 ## Creating the minimap
 1. Create a background texture to be used for the minimap.
-  - Generate a **256x256** texture containing the background.
-  - The background size can be configured in the shader's configuration file.
+    - Generate a **256x256** texture containing the background.
+    - The background size can be configured in the shader's configuration file.
 2. Add the background texture to your resource pack's font
 3. Spawn a text display in the center of the 256x256 area.
-  - The text display must have a scale of zero
-  - The color of the text in the text display must be `#454D00`
-  - **Note:** The view distance of the text display is smaller than the 256x256 area
+    - The text display must have a scale of zero
+    - The color of the text in the text display must be `#454D00`
+    - **Note:** The view distance of the text display is smaller than the 256x256 area
 Now you should have a minimap displayed on screen while in view range. You are able to make larger backgrounds by placing entities at regular intervals.
 
 ## Adding icons to the minimap
 1. Create a texture for your icon.
-  - This can be any size that is a multiple of two between `2` and `128`
+    - This can be any size that is a multiple of two between `2` and `128`
 2. Add the texture to your resource pack's font
 3. Spawn a text display where you want the icon to appear on the map
-  - The text display must have a scale of zero
-  - The color value of the text encodes two key properties:
-    - The 2 most significant bits represent the Z-position of the icon minus 1.
-    - The 6 least significant bits represent HALF the size of the texture minus 1.
+    - The text display must have a scale of zero
+    - The color value of the text encodes two key properties:
+        - The 2 most significant bits represent the Z-position of the icon minus 1.
+        - The 6 least significant bits represent HALF the size of the texture minus 1.
 Now you should have icons displaying on your minimap
 
 ## Icon color cheat sheet
