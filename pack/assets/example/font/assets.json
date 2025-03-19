@@ -1,0 +1,22 @@
+{
+    "providers": [
+        {
+            "type": "bitmap",
+            "file": "example:map.png",
+            "ascent": 256,
+            "height": 256,
+            "chars": [
+                "a"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "example:icons.png",
+            "ascent": 16,
+            "height": 16,
+            "chars": [
+                "bcd"
+            ]
+        }
+    ]
+}
