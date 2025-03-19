@@ -103,6 +103,7 @@ mat2 createRotationMat(float theta) {
     in float minimapActive;
 
     bool applyMinimap() {
+        gl_FragDepth = gl_FragCoord.z;
         if (minimapActive == MINIMAP_ACTIVE) {
             // Calculate x and y coordinates for readability
             float x = gl_FragCoord.x;
