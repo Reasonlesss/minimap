@@ -22,15 +22,11 @@ out vec2 texCoord0;
 #moj_import <minimap:minimap.glsl>
 
 void main() {
-    gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
-
-    vertexDistance = fog_distance(Position, FogShape);
-    vertexColor = Color * texelFetch(Sampler2, UV2 / 16, 0);
-    texCoord0 = UV0;
-
     if (applyMinimap()) {
         return;
     }
-
-    // Place other shaders here
+    gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
+    vertexDistance = fog_distance(Position, FogShape);
+    vertexColor = Color * texelFetch(Sampler2, UV2 / 16, 0);
+    texCoord0 = UV0;
 }

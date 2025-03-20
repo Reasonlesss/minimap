@@ -20,17 +20,12 @@ out vec4 fragColor;
 #moj_import <minimap:minimap.glsl>
 
 void main() {
-    vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
-
-    if (color.a < 0.1) {
-        discard;
-    }
-
-    fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
-
     if (applyMinimap()) {
         return;
     }
-
-    // Place other shaders here
+    vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
+    if (color.a < 0.1) {
+        discard;
+    }
+    fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
 }

@@ -48,3 +48,4 @@ The shader can be configured in the `assets/minimap/shaders/include/minimap_conf
 
 # Known caveats
   - Name tags of entities spawned after the minimap entities can sometimes show through the minimap.
+  - If the player has a low render distance, the minimap can stop rendering at shorter distances.

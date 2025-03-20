@@ -49,6 +49,8 @@ mat2 createRotationMat(float theta) {
 
         // We want to run the minimap code for hex codes 454D00 to 454DFF
         if (Color.x == SIGNATURE_E && Color.y == SIGNATURE_M) {
+            // Set the texture coordinates
+            texCoord0 = UV0;
             // Obtain data passed using the blue channel of the color.
             int blueChannel = int(Color.z * 255);
             bool isIcon = blueChannel > 0;
@@ -98,6 +100,12 @@ mat2 createRotationMat(float theta) {
 
     bool applyMinimap() {
         if (minimapActive == MINIMAP_ACTIVE) {
+            // Calculate the color of the minimap, ignoring fog.
+            vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
+            if (color.a < 0.1) {
+                discard;
+            }
+            fragColor = color;
             // Calculate x and y coordinates for readability
             float x = gl_FragCoord.x;
             float y = ScreenSize.y - gl_FragCoord.y;
